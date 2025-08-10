@@ -14,9 +14,9 @@ importers:
       '@rbxts/services':
         specifier: ^1.5.5
         version: 1.5.5
-      '@rbxts/ss-fusion':
-        specifier: file:..\ss-fusion\rbxts-ss-fusion-2.1.5.tgz
-        version: file:../ss-fusion/rbxts-ss-fusion-2.1.5.tgz
+      '@trembus/ss-fusion':
+        specifier: ^2.1.5
+        version: 2.1.5
     devDependencies:
       '@rbxts/compiler-types':
         specifier: 3.0.0-types.0
@@ -137,10 +137,6 @@ packages:
   '@rbxts/services@1.5.5':
     resolution: {integrity: sha512-Hu7QH2ecefS60zpakKG3T2vgABydoOJqpSG7nXr59wFAbPk/cA+OcsntYPHUWyHAat0VFGZ5jNZLTLdiqfssvg==}
 
-  '@rbxts/ss-fusion@file:../ss-fusion/rbxts-ss-fusion-2.1.5.tgz':
-    resolution: {integrity: sha512-3BvfED5Snp66m7Yoad/S13SseRMilmivNihw1q+Hxxu7yP8B3od5xiAcOrEiTiaZIlmpp9jqd6zdHdMTt5GD+w==, tarball: file:../ss-fusion/rbxts-ss-fusion-2.1.5.tgz}
-    version: 2.1.5
-
   '@rbxts/types@1.0.868':
     resolution: {integrity: sha512-pwVEzdw3Zy6FbCQywBEudYvw8yiUEhv0pUqMlqszb75gsMj8ltJ3dUkvsKKVix+H4uoNF/dKWnwIfpsfGCHwmg==}
 
@@ -152,6 +148,9 @@ packages:
 
   '@roblox-ts/rojo-resolver@1.1.0':
     resolution: {integrity: sha512-QmvVryu1EeME+3QUoG5j/gHGJoJUaffCgZ92mhlG7cJSd1uyhgpY4CNWriZAwZJYkTlzd5Htkpn+18yDFbOFXA==}
+
+  '@trembus/ss-fusion@2.1.5':
+    resolution: {integrity: sha512-JfjDozXF3CVbFDFKg8T7f6voc+4oytZ7PnPQAfo+wnIsihUfNDLrmpjqu2Y4Mv8Xk90SamUBHfJTfl3tttEW9g==}
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
@@ -879,10 +878,6 @@ snapshots:
 
   '@rbxts/services@1.5.5': {}
 
-  '@rbxts/ss-fusion@file:../ss-fusion/rbxts-ss-fusion-2.1.5.tgz':
-    dependencies:
-      '@rbxts/fusion': 0.2.0
-
   '@rbxts/types@1.0.868': {}
 
   '@roblox-ts/luau-ast@2.0.0': {}
@@ -896,6 +891,10 @@ snapshots:
     dependencies:
       ajv: 8.17.1
       fs-extra: 11.3.1
+
+  '@trembus/ss-fusion@2.1.5':
+    dependencies:
+      '@rbxts/fusion': 0.2.0
 
   '@types/estree@1.0.8': {}
 

@@ -1,6 +1,6 @@
 import { Children, New, Value } from "@rbxts/fusion";
 import { Players } from "@rbxts/services";
-import { IconButton, CloseButton, Avatar, AutoGrid, CooldownButton  } from "@rbxts/ss-fusion";
+import { IconButton, CloseButton, Avatar, AutoGrid, CooldownButton  } from "@trembus/ss-fusion";
 import { ImageConstants } from "shared/image-assets";
 
 const localPlayer = Players.LocalPlayer;
