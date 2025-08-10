@@ -27,6 +27,6 @@
   "dependencies": {
     "@rbxts/fusion": "^0.2.0",
     "@rbxts/services": "^1.5.5",
-    "@trembus/ss-fusion": "^2.1.5"
+    "@trembus/ss-fusion": "^2.1.7"
   }
 }
