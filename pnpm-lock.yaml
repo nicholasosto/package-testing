@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@rbxts/fusion':
+        specifier: ^0.2.0
+        version: 0.2.0
+      '@rbxts/ss-fusion':
+        specifier: file:..\ss-fusion
+        version: file:../ss-fusion
     devDependencies:
       '@rbxts/compiler-types':
         specifier: 3.0.0-types.0
@@ -120,6 +127,12 @@ packages:
 
   '@rbxts/compiler-types@3.0.0-types.0':
     resolution: {integrity: sha512-VGOHJPoL7+56NTatMGqQj3K7xWuzEV+aP4QD5vZiHu+bcff3kiTmtoadaF6NkJrmwfFAvbsd4Dg764ZjWNceag==}
+
+  '@rbxts/fusion@0.2.0':
+    resolution: {integrity: sha512-Hs+IXSPM+5KE4FMKh+zyifG2+1EI8B0K1DA3gN6TncwiQxdVzz6XchxRVI/BTqto7uLBtEAVMQzhrkUneaJNIQ==}
+
+  '@rbxts/ss-fusion@file:../ss-fusion':
+    resolution: {directory: ../ss-fusion, type: directory}
 
   '@rbxts/types@1.0.868':
     resolution: {integrity: sha512-pwVEzdw3Zy6FbCQywBEudYvw8yiUEhv0pUqMlqszb75gsMj8ltJ3dUkvsKKVix+H4uoNF/dKWnwIfpsfGCHwmg==}
@@ -854,6 +867,12 @@ snapshots:
   '@pkgr/core@0.2.9': {}
 
   '@rbxts/compiler-types@3.0.0-types.0': {}
+
+  '@rbxts/fusion@0.2.0': {}
+
+  '@rbxts/ss-fusion@file:../ss-fusion':
+    dependencies:
+      '@rbxts/fusion': 0.2.0
 
   '@rbxts/types@1.0.868': {}
 

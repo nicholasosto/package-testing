@@ -23,5 +23,9 @@
     "prettier": "^3.6.2",
     "roblox-ts": "^3.0.0",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@rbxts/fusion": "^0.2.0",
+    "@rbxts/ss-fusion": "file:..\\ss-fusion"
   }
 }
