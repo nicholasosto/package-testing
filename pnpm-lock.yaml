@@ -14,9 +14,6 @@ importers:
       '@rbxts/services':
         specifier: ^1.5.5
         version: 1.5.5
-      '@trembus/ss-fusion':
-        specifier: ^2.1.7
-        version: 2.1.7
     devDependencies:
       '@rbxts/compiler-types':
         specifier: 3.0.0-types.0
@@ -148,9 +145,6 @@ packages:
 
   '@roblox-ts/rojo-resolver@1.1.0':
     resolution: {integrity: sha512-QmvVryu1EeME+3QUoG5j/gHGJoJUaffCgZ92mhlG7cJSd1uyhgpY4CNWriZAwZJYkTlzd5Htkpn+18yDFbOFXA==}
-
-  '@trembus/ss-fusion@2.1.7':
-    resolution: {integrity: sha512-SNf1ktAS08S6lTsUKwxMoypq8z4dIHzML5noZg8WzhDP2VsYIugV1RP8+eUaIdKYZVW4B5HeRQc2qCXEfCHLxg==}
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
@@ -891,10 +885,6 @@ snapshots:
     dependencies:
       ajv: 8.17.1
       fs-extra: 11.3.1
-
-  '@trembus/ss-fusion@2.1.7':
-    dependencies:
-      '@rbxts/fusion': 0.2.0
 
   '@types/estree@1.0.8': {}
 
