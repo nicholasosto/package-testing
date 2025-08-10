@@ -11,9 +11,12 @@ importers:
       '@rbxts/fusion':
         specifier: ^0.2.0
         version: 0.2.0
+      '@rbxts/services':
+        specifier: ^1.5.5
+        version: 1.5.5
       '@rbxts/ss-fusion':
-        specifier: file:..\ss-fusion
-        version: file:../ss-fusion
+        specifier: file:..\ss-fusion\rbxts-ss-fusion-2.1.5.tgz
+        version: file:../ss-fusion/rbxts-ss-fusion-2.1.5.tgz
     devDependencies:
       '@rbxts/compiler-types':
         specifier: 3.0.0-types.0
@@ -131,8 +134,12 @@ packages:
   '@rbxts/fusion@0.2.0':
     resolution: {integrity: sha512-Hs+IXSPM+5KE4FMKh+zyifG2+1EI8B0K1DA3gN6TncwiQxdVzz6XchxRVI/BTqto7uLBtEAVMQzhrkUneaJNIQ==}
 
-  '@rbxts/ss-fusion@file:../ss-fusion':
-    resolution: {directory: ../ss-fusion, type: directory}
+  '@rbxts/services@1.5.5':
+    resolution: {integrity: sha512-Hu7QH2ecefS60zpakKG3T2vgABydoOJqpSG7nXr59wFAbPk/cA+OcsntYPHUWyHAat0VFGZ5jNZLTLdiqfssvg==}
+
+  '@rbxts/ss-fusion@file:../ss-fusion/rbxts-ss-fusion-2.1.5.tgz':
+    resolution: {integrity: sha512-3BvfED5Snp66m7Yoad/S13SseRMilmivNihw1q+Hxxu7yP8B3od5xiAcOrEiTiaZIlmpp9jqd6zdHdMTt5GD+w==, tarball: file:../ss-fusion/rbxts-ss-fusion-2.1.5.tgz}
+    version: 2.1.5
 
   '@rbxts/types@1.0.868':
     resolution: {integrity: sha512-pwVEzdw3Zy6FbCQywBEudYvw8yiUEhv0pUqMlqszb75gsMj8ltJ3dUkvsKKVix+H4uoNF/dKWnwIfpsfGCHwmg==}
@@ -870,7 +877,9 @@ snapshots:
 
   '@rbxts/fusion@0.2.0': {}
 
-  '@rbxts/ss-fusion@file:../ss-fusion':
+  '@rbxts/services@1.5.5': {}
+
+  '@rbxts/ss-fusion@file:../ss-fusion/rbxts-ss-fusion-2.1.5.tgz':
     dependencies:
       '@rbxts/fusion': 0.2.0
 

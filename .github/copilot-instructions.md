@@ -84,4 +84,39 @@ Contracts for generators/edits
 - Circular imports across `client/server/shared` will surface at runtime; keep modules small and acyclic.
 - Don’t edit `out/` or `rbxts_include` by hand; they’re build/runtime artifacts.
 
+## External libraries and scopes (important for imports that “don’t work”)
+- Prefer publishing/consuming packages under the `@rbxts` scope. The default Rojo mapping and tsconfig in this repo expose `node_modules/@rbxts` at runtime and as a type root at compile time.
+- If you must use a non-`@rbxts` scope (e.g., `@trembus/…`), consumers need extra wiring:
+  - tsconfig: add `"typeRoots": ["node_modules/@rbxts", "node_modules/@trembus"]` or the relevant scope.
+  - default.project.json: expose that scope under `ReplicatedStorage/rbxts_include/node_modules/<scope>` by adding a new entry like `"@trembus": { "$path": "node_modules/@trembus" }`.
+  - Library authoring tip: provide a root `index.d.ts` and set `"types": "index.d.ts"` in package.json so TypeScript can resolve declarations without consumer path hacks. Ensure `"files"` includes `index.d.ts` and your built `out`.
+
+## Authoring a roblox-ts library (publishing best practices)
+- Package.json essentials:
+  - name: `@rbxts/your-lib`
+  - main/exports: point to built Luau (e.g., `out/init.luau`, plus subpath exports if needed)
+  - types: `index.d.ts` at the package root that re-exports `out/index.d.ts`
+  - files: include `out` and `index.d.ts`
+- Keep `tsconfig.json` with `baseUrl: "src"`, `outDir: "out"`, and strict settings. Don’t publish `src` unless intentional.
+
+## Local library development and linking
+- To test a local lib in this app without publishing:
+  - Build the library (`pnpm run build` in the lib)
+  - Link via file spec in this app: `pnpm add @rbxts/your-lib@file:..\\your-lib`
+  - Rebuild this app. Imports like `import { Foo } from "@rbxts/your-lib"` work with the default mapping.
+
+## Testing pattern for libraries (TestEZ + Rojo)
+- Structure (inside the library):
+  - Place tests under `src/tests/**` (e.g., `src/tests/unit/...`).
+  - Add `tsconfig.test.json` compiling to an output folder outside the project (avoids roblox-ts copy-into-self issues), e.g., `../<lib>-tests-out`.
+  - Minimal bootstrap at `src/tests/helpers/bootstrap.client.ts` using `@rbxts/testez` to discover and run specs.
+  - A dedicated Rojo `tests.project.json` mapping:
+    - `ReplicatedStorage/TS` -> compiled tests outDir
+    - `ReplicatedStorage/node_modules/@rbxts` -> library `node_modules/@rbxts`
+    - `StarterPlayer/StarterPlayerScripts/Tests` -> `compiled-out/tests`
+- Scripts (in the library):
+  - `build:tests`: `rbxtsc -p tsconfig.test.json`
+  - `test:place`: `rojo build tests.project.json -o TestPlace.rbxlx`
+  - Open `TestPlace.rbxlx` in Studio to run tests on the client.
+
 If any workflow differs in your setup (e.g., alternative Rojo usage), let me know so I can update these instructions accordingly.

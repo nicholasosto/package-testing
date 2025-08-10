@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@rbxts/fusion": "^0.2.0",
-    "@rbxts/ss-fusion": "file:..\\ss-fusion"
+    "@rbxts/services": "^1.5.5",
+    "@rbxts/ss-fusion": "file:..\\ss-fusion\\rbxts-ss-fusion-2.1.5.tgz"
   }
 }
