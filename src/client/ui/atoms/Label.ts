@@ -36,7 +36,7 @@
  * @since 1.0.0
  */
 
-import Fusion, { Computed, New } from "@rbxts/fusion";
+import Fusion, { Children, Computed, New } from "@rbxts/fusion";
 import { defaultColorScheme, fontSizes } from "../utils/theme";
 
 /**
@@ -214,5 +214,6 @@ export function Label(props: LabelProps): TextLabel {
 		// Optional properties passthrough
 		Visible: props.Visible,
 		ClipsDescendants: props.ClipsDescendants,
+		[Children]: props[Children],
 	});
 }

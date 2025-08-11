@@ -5,7 +5,7 @@ import { CooldownButton } from "./ui/molecules";
 import { Badge, Label } from "./ui/atoms";
 import { CharacterInfoCard } from "./ui/organisms";
 import { AutoGrid } from "./ui/layout/Grid";
-import { PlayerResources } from "./states/resources";
+import { PlayerResources, playerProgress } from "./states/resources";
 
 const localPlayer = Players.LocalPlayer;
 const playerGui = localPlayer.WaitForChild("PlayerGui");
@@ -44,7 +44,8 @@ const testScreen = New("ScreenGui")({
             const max2 = PlayerResources.mana.max;
             const cur3 = PlayerResources.stamina.current;
             const max3 = PlayerResources.stamina.max;
-            const curLvl = Value(350); const maxLvl = Value(1000);
+            const curExp = playerProgress.experience;
+            const maxExp = playerProgress.maxExperience;
             return CharacterInfoCard({
                 Name: "CharacterInfoDemo",
                 Position: new UDim2(0, 20, 0, 20),
@@ -53,8 +54,18 @@ const testScreen = New("ScreenGui")({
                 bar1: { currentValue: cur1, maxValue: max1, fillColor: Color3.fromRGB(220,60,60) },
                 bar2: { currentValue: cur2, maxValue: max2, fillColor: Color3.fromRGB(60,120,255) },
                 bar3: { currentValue: cur3, maxValue: max3, fillColor: Color3.fromRGB(245,180,60) },
-                levelBar: { currentValue: curLvl, maxValue: maxLvl, fillColor: Color3.fromRGB(150,90,250), showLabel: true },
+                levelBar: { currentValue: curExp, maxValue: maxExp, fillColor: Color3.fromRGB(150,90,250), showLabel: true },
             });
         })(),
     },
+});
+
+task.spawn(() => {
+    while (true) {
+        wait(1);
+        PlayerResources.health.current.set(PlayerResources.health.current.get() - 1);
+        PlayerResources.mana.current.set(PlayerResources.mana.current.get() - 1);
+        PlayerResources.stamina.current.set(PlayerResources.stamina.current.get() - 1);
+        playerProgress.experience.set(playerProgress.experience.get() + 10);
+    }
 });

@@ -12,7 +12,7 @@ export const defaultColorScheme: ColorScheme = {
 	OnPrimary: Color3.fromRGB(255, 255, 255), // White
 	OnSecondary: Color3.fromRGB(255, 255, 255), // White
 	OnBackground: Color3.fromRGB(17, 24, 39), // Gray-900
-	OnSurface: Color3.fromRGB(55, 65, 81), // Gray-700
+	OnSurface: Color3.fromRGB(117, 125, 140), // Gray-700
 	Error: Color3.fromRGB(239, 68, 68), // Red-500
 	Success: Color3.fromRGB(34, 197, 94), // Green-500
 	Warning: Color3.fromRGB(245, 158, 11), // Amber-500

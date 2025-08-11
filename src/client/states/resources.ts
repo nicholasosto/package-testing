@@ -14,3 +14,9 @@ export const PlayerResources = {
         max: Value(75)
     }
 };
+
+export const playerProgress = {
+    level: Value(1),
+    experience: Value(0),
+    maxExperience: Value(100)
+};

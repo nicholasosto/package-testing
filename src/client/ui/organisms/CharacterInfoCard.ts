@@ -80,13 +80,16 @@ export function CharacterInfoCard(props: CharacterInfoCardProps): Frame {
             New("UIFlexItem")({
                 FlexMode: Enum.UIFlexMode.Shrink
             }),
+            Label({
+                text: props.nameLabel,
+                variant: 'body',
+                [Children]: New("UIFlexItem")({
+                  FlexMode: Enum.UIFlexMode.Shrink
+                })
+            }),
             SmallBar("Bar1", { ...props.bar1, fillColor: bar1Color }),
             SmallBar("Bar2", { ...props.bar2, fillColor: bar2Color }),
             SmallBar("Bar3", { ...props.bar3, fillColor: bar3Color }),
-            Label({
-                text: props.nameLabel,
-                variant: 'caption',
-            })
         ],
       }),
     ],
