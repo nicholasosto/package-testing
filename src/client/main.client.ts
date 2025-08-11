@@ -5,6 +5,7 @@ import { CooldownButton } from "./ui/molecules";
 import { Badge, Label } from "./ui/atoms";
 import { CharacterInfoCard } from "./ui/organisms";
 import { AutoGrid } from "./ui/layout/Grid";
+import { PlayerResources } from "./states/resources";
 
 const localPlayer = Players.LocalPlayer;
 const playerGui = localPlayer.WaitForChild("PlayerGui");
@@ -30,16 +31,19 @@ const autogrid = AutoGrid({
 
 
 const testScreen = New("ScreenGui")({
-    Name: "TestScreen",
+    Name: "TestScreen", 
     ResetOnSpawn: false,
     Parent: playerGui,
     [Children]: {
         AutoGrid: autogrid,
         CharacterInfo: (() => {
             // demo values
-            const cur1 = Value(80); const max1 = Value(100);
-            const cur2 = Value(50); const max2 = Value(100);
-            const cur3 = Value(30); const max3 = Value(60);
+            const cur1 = PlayerResources.health.current;
+            const max1 = PlayerResources.health.max;
+            const cur2 = PlayerResources.mana.current;
+            const max2 = PlayerResources.mana.max;
+            const cur3 = PlayerResources.stamina.current;
+            const max3 = PlayerResources.stamina.max;
             const curLvl = Value(350); const maxLvl = Value(1000);
             return CharacterInfoCard({
                 Name: "CharacterInfoDemo",
